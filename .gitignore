@@ -1,0 +1,13 @@
+# filepath: /.gitignore
+# Root ignores
+node_modules/
+dist/
+.DS_Store
+
+# Server
+server/node_modules/
+server/.env
+
+# Web
+web/node_modules/
+web/dist/
