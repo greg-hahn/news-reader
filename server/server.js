@@ -60,6 +60,9 @@ app.get('/api/news/all', async (req, res) => {
       timeout: 10000,
     });
 
+      const ttl = parseInt(process.env.NEWS_EDGE_TTL || '60', 10);
+      const swr = parseInt(process.env.NEWS_EDGE_SWR || '120', 10);
+      res.setHeader('Cache-Control', `public, s-maxage=${ttl}, stale-while-revalidate=${swr}`);
     // Ensure most recent results first by published_at desc
     const payload = response.data || {};
     const list = Array.isArray(payload.data) ? [...payload.data] : [];
