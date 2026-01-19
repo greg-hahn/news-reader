@@ -1,6 +1,10 @@
-// filepath: /vercel.json
 {
-  "framework": "vite",
-  "buildCommand": "npm --prefix web install && npm --prefix web run build",
-  "outputDirectory": "web/dist"
+  "version": 2,
+  "builds": [
+    {
+      "src": "web/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ]
 }
